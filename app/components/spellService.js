@@ -47,4 +47,12 @@ export default class SpellService {
                 setState('spellsApi', res.data.results)
             })
     }
+
+    getDetails(url) {
+        _spellApi.get(formatUrl(url))
+            .then(res => {
+                let data = new Spell(res.data)
+                setState('activeSpell', data)
+            })
+    }
 }

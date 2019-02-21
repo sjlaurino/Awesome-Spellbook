@@ -20,6 +20,11 @@ function drawActiveSpell() {
 export default class SpellController {
     constructor() {
         _ss.addSubscriber('spellsApi', drawSpellApi)
+        _ss.addSubscriber('activeSpell', drawActiveSpell)
         _ss.getSpellData()
+    }
+
+    getDetails(url) {
+        _ss.getDetails(url)
     }
 }
