@@ -55,4 +55,17 @@ export default class SpellService {
                 setState('activeSpell', data)
             })
     }
+
+    showDetails(id) {
+        let spell = _state.mySpellBook.find(s => s._id == id)
+        setState('activeSpell', spell)
+    }
+
+    addSpell() {
+        let spell = _state.mySpellBook.find(s => s.name == _state.activeSpell.name)
+        if (!spell) {
+            _state.mySpellBook.push(_state.activeSpell)
+            _subscribers.mySpellBook.forEach(fn => fn())
+        }
+    }
 }

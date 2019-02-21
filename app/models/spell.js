@@ -1,6 +1,6 @@
 export default class Spell {
     constructor(data) {
-        this._id = data._id
+        this._id = data._id || data.id
         this.name = data.name
         this.desc = data.desc
         this.duration = data.duration
