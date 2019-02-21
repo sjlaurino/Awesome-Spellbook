@@ -6,6 +6,9 @@ function formatUrl(url) {
 let _spellApi = axios.create({
     baseURL: ''
 })
+let _myApi = axios.create({
+    baseURL: 'https://bcw-sandbox.herokuapp.com/api/Steven/spells/'
+})
 
 let _state = {
     spellsApi: [],
@@ -25,6 +28,7 @@ function setState(prop, data) {
 }
 
 export default class SpellService {
+
     addSubscriber(prop, fn) {
         _subscribers[prop].push(fn)
     }
@@ -48,6 +52,13 @@ export default class SpellService {
             })
     }
 
+    // postSpells() {
+    //     _spellApi.post('', new Spell)
+    //         .then(res => {
+    //             this.SpellsApi()
+    //         })
+    // }
+
     getDetails(url) {
         _spellApi.get(formatUrl(url))
             .then(res => {
@@ -64,8 +75,22 @@ export default class SpellService {
     addSpell() {
         let spell = _state.mySpellBook.find(s => s.name == _state.activeSpell.name)
         if (!spell) {
-            _state.mySpellBook.push(_state.activeSpell)
-            _subscribers.mySpellBook.forEach(fn => fn())
+            _myApi.post('', _state.activeSpell)
+                .then(res => {
+                    this.getSpellBook()
+                })
         }
     }
+
+    getSpellBook() {
+        _myApi.get('')
+            .then(res => {
+                let data = res.data.data.map(s => new Spell(s))
+                setState('mySpellBook', data)
+            })
+        //get request 
+        //then save the arrays of spells returned to tthe state
+        //optionally, can turn every spell in array into a spell instance if you have a class
+    }
 }
+

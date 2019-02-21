@@ -32,6 +32,7 @@ export default class SpellController {
         _ss.addSubscriber('activeSpell', drawActiveSpell)
         _ss.addSubscriber('mySpellBook', drawSpellbook)
         _ss.getSpellData()
+        _ss.getSpellBook()
     }
 
     getDetails(url) {
