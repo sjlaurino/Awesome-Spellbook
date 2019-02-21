@@ -43,5 +43,8 @@ export default class SpellService {
 
     getSpellData() {
         _spellApi.get(formatUrl('http://dnd5eapi.co/api/spells/'))
+            .then(res => {
+                setState('spellsApi', res.data.results)
+            })
     }
 }
