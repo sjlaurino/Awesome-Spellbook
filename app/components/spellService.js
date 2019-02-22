@@ -7,7 +7,7 @@ let _spellApi = axios.create({
     baseURL: ''
 })
 let _myApi = axios.create({
-    baseURL: 'https://bcw-sandbox.herokuapp.com/api/Steven/spells/'
+    baseURL: 'https://bcw-sandbox.herokuapp.com/api/Steven/spells'
 })
 
 let _state = {
@@ -80,6 +80,12 @@ export default class SpellService {
                     this.getSpellBook()
                 })
         }
+    }
+    removeSpell(id) {
+        _myApi.delete('' + id)
+            .then(res => {
+                this.getSpellBook()
+            })
     }
 
     getSpellBook() {

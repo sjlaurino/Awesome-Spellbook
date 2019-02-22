@@ -11,18 +11,34 @@
     <title>Spellbook</title>
 </head>
 
-<body>
+<body class="bgimg">
     <section class="container-fluid">
         <div class="row">
-            <div class="col-4">
+            <div class="col text-center mt-5 mb-5">
+                <h1>Dungeons & Dragons</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-center mb-3 spells">
+                <h4>Choose Your Spells:</h4>
+            </div>
+            <div class="col-4 text-center mb-3 currentSpells">
+                <h4>Current Spell:</h4>
+            </div>
+            <div class="col-4 text-center mb-3 mySpells">
+                <h4>My Spellbook:</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4 text-center">
                 <ul id="api-spells">
                     <!-- list here -->
                 </ul>
             </div>
-            <div id="active-spell" class="col-4">
+            <div id="active-spell" class="col-4 text-center">
                 <!-- active here -->
             </div>
-            <div id="my-spellbook" class="col-4">
+            <div id="my-spellbook" class="col-4 text-center">
                 <!-- spellbook here -->
             </div>
         </div>

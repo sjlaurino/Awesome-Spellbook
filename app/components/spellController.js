@@ -6,22 +6,24 @@ function drawSpellApi() {
     let template = ''
     _ss.SpellsApi.forEach(s => {
         template += `
-        <li onclick="app.controllers.spellController.getDetails('${s.url}')">${s.name}</li>
+        <li class="spellDB" onclick="app.controllers.spellController.getDetails('${s.url}')">${s.name}</li>
         `
     })
     document.querySelector('#api-spells').innerHTML = template
 }
 
 function drawActiveSpell() {
-    document.querySelector('#active-spell').innerHTML = _ss.ActiveSpell.getTemplate()
+    let spell = _ss.ActiveSpell
+    let button = `<button onclick="app.controllers.spellController.addSpell()" class="btn btn-danger">Add Spell</button >`
+    let template = spell.getTemplate(button)
+    document.querySelector('#active-spell').innerHTML = template
 }
 
 function drawSpellbook() {
     let template = ''
     _ss.MySpellBook.forEach(s => {
-        template += `
-        <li onclick="app.controllers.spellController.showDetails('${s._id}')">${s.name}</li>
-        `
+        let button = `<button onclick="app.controllers.spellController.removeSpell('${s._id}')" class="btn btn-danger">Remove Spell</button>`
+        template += s.getTemplate(button)
     })
     document.querySelector('#my-spellbook').innerHTML = template
 }
@@ -45,5 +47,8 @@ export default class SpellController {
 
     addSpell() {
         _ss.addSpell()
+    }
+    removeSpell(id) {
+        _ss.removeSpell(id)
     }
 }

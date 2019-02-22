@@ -1,0 +1,22 @@
+.bgimg{
+  background-image: url(https://backgroundcheckall.com/wp-content/uploads/2017/12/background-dnd-4.jpg), url(https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/dark-and-spooky-dungeon-with-torches-hanging-on-a-brick-wall_4bqefvc9l__F0000.png);
+  background-size: contain, contain;
+  background-position: top, top;
+  background-repeat: no-repeat, no-repeat;
+}
+.spells{
+  color: white;
+  text-shadow: 0px 4px 4px black;
+}
+.currentSpells{
+  color: white;
+  text-shadow: 0px 2px 3px black;
+}
+.mySpells{
+  color: white;
+  text-shadow: 0px 4px 4px black;
+}
+.spellDB{
+  color: white;
+  text-shadow: 0px 1px 3px black;
+}
